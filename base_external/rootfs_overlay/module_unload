@@ -1,0 +1,18 @@
+#!/bin/sh
+module=scull
+module2=faulty
+
+unload(){
+rmmod $module || exit 1
+
+# Remove stale nodes
+
+rm -f /dev/${module}
+}
+unload
+module=$module2
+unload
+module=hello
+unload
+exit
+
