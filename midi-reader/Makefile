@@ -1,0 +1,13 @@
+midi_reader: midi_reader.c
+	$(CROSS_COMPILE)gcc midi_reader.c -o midi_reader
+
+clean:
+	rm -rf $(DEST_DIR)*.o
+	rm $(DEST_DIR)midi_reader
+
+install:
+	cp ./midi_reader $(DEST_DIR) 
+	chmod +x $(DEST_DIR)midi_reader
+
+all:
+	$(CC) $(CFLAGS) $^ midi_reader.c -o midi_reader $(INCLUDES) $(LDFLAGS) $(DEVFLAGS)
