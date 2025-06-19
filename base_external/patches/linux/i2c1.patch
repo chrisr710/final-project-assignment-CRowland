@@ -1,0 +1,19 @@
+From: AnshulSomani <anshul.somani@colorado.edu>
+Date: Mon, 11 Apr 2022 16:26:02 -0600
+Subject: [PATCH] creating patch
+
+---
+
+diff --git a/arch/arm/boot/dts/am335x-bone-common.dtsi b/arch/arm/boot/dts/am335x-bone-common.dtsi
+index 4f9de0db2..898a2dc11 100644
+--- a/arch/arm/boot/dts/am335x-bone-common.dtsi
++++ b/arch/arm/boot/dts/am335x-bone-common.dtsi
+
+@@ -177,6 +184,7 @@
+ 			AM33XX_IOPAD(0x81c, PIN_INPUT_PULLUP | MUX_MODE1) /* gpmc_ad7.mmc1_dat7 */
+ 		>;
+ 	};
++	
+ 
+ 	/* P9_19 (ZCZ ball D17) i2c2_scl */
+ 	P9_19_default_pin: pinmux_P9_19_default_pin { pinctrl-single,pins = <
