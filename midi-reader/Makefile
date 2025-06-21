@@ -17,3 +17,4 @@ all:
 	$(CC) $(CFLAGS) $^ midi_reader.c -o midi_reader $(INCLUDES) $(LDFLAGS) $(DEVFLAGS)
 	$(CC) $(CFLAGS) $^ vco_writer.c -o vco_writer $(INCLUDES) $(LDFLAGS) $(DEVFLAGS)
 	$(CC) $(CFLAGS) $^ vca_writer.c -o vca_writer $(INCLUDES) $(LDFLAGS) $(DEVFLAGS)
+	$(CC) $(CFLAGS) $^ array_writer.c -o array_writer $(INCLUDES) $(LDFLAGS) $(DEVFLAGS)
