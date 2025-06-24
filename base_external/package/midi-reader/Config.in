@@ -2,5 +2,5 @@
 config BR2_PACKAGE_MIDI_READER
 	bool "midi-reader"
 	help
-	  Used to read USB Midi
+	  Used to read USB Midi and translate to voltages
 	  For final project.
