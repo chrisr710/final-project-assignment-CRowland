@@ -12,6 +12,7 @@ MIDI_READER_SITE = ../midi-reader
 define MIDI_READER_BUILD_CMDS
         $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/ all
 		$(INSTALL) -D -m 755 $(@D)/S99digital_analog_synth-start-stop $(TARGET_DIR)/etc/init.d/S99digital_analog_synth-start-stop	
+		$(INSTALL) -D -m 755 $(@D)/digital_analog_synth $(TARGET_DIR)/usr/bin/digital_analog_synth
 endef
 $(eval $(generic-package))
 
