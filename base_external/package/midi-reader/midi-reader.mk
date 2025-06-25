@@ -8,17 +8,10 @@
 # with ssh keys and the automated build/test system.
 # Your site should start with git@github.com:
 MIDI_READER_SITE_METHOD = local
-MIDI_READER_SITE = /school_data/final-project-assignment-CRowland/midi-reader
+MIDI_READER_SITE = ../midi-reader
 define MIDI_READER_BUILD_CMDS
         $(MAKE) $(TARGET_CONFIGURE_OPTS) -C $(@D)/ all
+		$(INSTALL) -D -m 755 $(@D)/S99digital_analog_synth-start-stop $(TARGET_DIR)/etc/init.d/S99digital_analog_synth-start-stop	
 endef
-
-
-
 $(eval $(generic-package))
-#AESD_CHARDEV_GIT_SUBMODULES = YES
-#AESD_CHARDEV_MODULE_SUBDIRS = aesd-char-driver/
-#LDD_MODULE_SUBDIRS+= scull/
 
-#$(eval $(kernel-module))
-#$(eval $(generic-package))

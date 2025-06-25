@@ -104,7 +104,7 @@ bool is_command_byte(uint8_t in_byte){
 
 void write_vca_value(uint16_t value){
 	if (value > 40000){value = 55000;}
-	printf("writing vca value:%hu\n",value);
+	//printf("writing vca value:%hu\n",value);
 	//calculate the actual bits to be sent before locking and sending them
 	uint8_t input_array[2];
 	input_array[0]=(uint8_t)(value>>12);
@@ -171,8 +171,8 @@ void vca_envelope_runner(bool reset){
 		}
 	}
 	if (use_decay_array == true){
-		printf("using decay array\n");
-		printf("decay array value at %d is %hu\n", current_vca_envelope_position, envelope_arrays[current_selected_vca_decay_array][current_vca_envelope_position]);
+		//printf("using decay array\n");
+		//printf("decay array value at %d is %hu\n", current_vca_envelope_position, envelope_arrays[current_selected_vca_decay_array][current_vca_envelope_position]);
 		if (current_velocity_i2cval != target_velocity_i2cval + (envelope_arrays[current_selected_vca_decay_array][current_vca_envelope_position])){
 			
 			write_vca_value(target_velocity_i2cval + (envelope_arrays[current_selected_vca_decay_array][current_vca_envelope_position]));
@@ -240,7 +240,7 @@ void handle_note_on(uint8_t note_number, uint8_t note_velocity,uint8_t channel){
 
 void set_vco_envelope_array(void){
 	current_selected_vco_array = current_selected_vco_array + 1;
-	if (current_selected_vco_array > 14){
+	if (current_selected_vco_array > 15){
 	current_selected_vco_array=0;}
 	printf("current selected vco array is %d\n", current_selected_vco_array);
 	
@@ -248,7 +248,7 @@ void set_vco_envelope_array(void){
 
 void set_vca_envelope_array(void){
 	current_selected_vca_array = current_selected_vca_array + 1;
-	if (current_selected_vca_array > 14) {
+	if (current_selected_vca_array > 15) {
 		current_selected_vca_array=0;
 	}
 	printf("current selected vca array is %d\n", current_selected_vca_array);
@@ -268,7 +268,7 @@ void handle_note_off(uint8_t note_number, uint8_t channel){
 	int noteoff = get_note_i2c_val(note_number);
 	//if it is not the current note number, ignore it
 	if (noteoff != target_note_i2cval){
-		printf("note number for wrong note, not shutting off\n");
+		//printf("note number for wrong note, not shutting off\n");
 		return;
 	}
 	//set the vca envelope to decay mode
@@ -371,7 +371,7 @@ int main(){
 					}
 					if (curr_command_value == NOTE_OFF && (! note_num_set)){ //Note on received, didn't get note num yet
 						note_num = buffer[0];
-						printf("bRUNNING NOTE OFF WITH NOTE # %d, channel %d\n",note_num,channel);
+						//printf("bRUNNING NOTE OFF WITH NOTE # %d, channel %d\n",note_num,channel);
 						if (note_num != -1){
 							handle_note_off(note_num, channel);
 						}

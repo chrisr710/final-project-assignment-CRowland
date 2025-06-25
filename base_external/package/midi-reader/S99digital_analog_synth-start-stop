@@ -1,0 +1,17 @@
+#! /bin/sh
+
+case "$1" in
+        start)
+                echo "STARTING synth!!!!!!!!!!"
+                /usr/bin/digital_analog_synth &
+                ;;
+        stop)
+                echo "STOPPING  aesd socketserver!!!!!!!!!!"
+                killall -9 digital_analog_synth
+                ;;
+        *)
+                echo "Usage: $0 {start|stop}"
+                exit 1
+esac
+
+exit 0
